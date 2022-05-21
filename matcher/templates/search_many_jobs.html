@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if job_search %}
+<h3>Results for {{job_search}} position</h3>
+
+{% if not job_objects %}
+<p>There is no such job title in the system</p>
+{%else%}
+<table>
+    <tr>
+        <th># Position</th>
+        <th>Title</th>
+        <th>Required skills</th>
+    </tr>
+    {% for job in job_objects %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{job.0}}</td>
+        <td>{{job.1}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+
+{% if candidates%}
+<h3>Candidates</h3>
+{% for candidate_list in candidates %}
+<h4>Candidates for position # {{forloop.counter}}</h4>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Skills</th>
+    </tr>
+    {% for candidate in candidate_list %}
+    <tr>
+        <td>{{candidate.0}}</td>
+        <td>{{candidate.1}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endfor %}
+{%else%}
+<h4>There are no candidates for this position</h4>
+{% endif %}
+{% endif %}<!-- The job_title if -->
+{% endif %} <!-- The job_search if -->
+
+{% endblock content %}
+
+

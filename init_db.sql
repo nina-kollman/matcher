@@ -1,0 +1,31 @@
+USE gloat;
+
+LOAD DATA INFILE "..\\Uploads\\Skills.csv" 
+INTO TABLE skill
+FIELDS TERMINATED BY ',' 
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE "..\\Uploads\\Jobs.csv"
+INTO TABLE job
+FIELDS TERMINATED BY ',' 
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE "..\\Uploads\\Jobs_skills.csv"
+INTO TABLE job_job_skills
+FIELDS TERMINATED BY ',' 
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE "..\\Uploads\\Candidates.csv"
+INTO TABLE candidate
+FIELDS TERMINATED BY ',' 
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;
+
+LOAD DATA INFILE "..\\Uploads\\Candidates_skills.csv"
+INTO TABLE candidate_candidate_skills
+FIELDS TERMINATED BY ',' 
+LINES TERMINATED BY '\n'
+IGNORE 1 ROWS;

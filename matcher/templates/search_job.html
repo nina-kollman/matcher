@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if job_search %}
+
+<h3>Results for {{job_search}} position</h3>
+
+{% if not job_found %}
+<p>There is no such job title in the system</p>
+{%else%}
+{% if candidates%}
+<h3>Candidates</h3>
+<table>
+    <tr>
+        <th>Job title</th>
+        <th>Name</th>
+        <th>Skills</th>
+    </tr>
+    {% for c in candidates %}
+    <tr>
+        <td>{{c.0}}</td>
+        <td>{{c.1}}</td>
+        <td>{{c.2}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{%else%}
+<p>No matching candidates were found</p>
+{% endif %}
+{% endif %}
+{% endif %}
+{% endblock content %}
